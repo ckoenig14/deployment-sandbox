@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>TEST_addTimeToDateTime</name>
+        <uuid>_a-0000dcb6-3fcb-8000-9ccd-01ef9001ef90_2622</uuid>
+        <description>This function adds any amount of time to a date time in hours, days, months, or years. It also formats the time to Eastern and accounts for daylight savings.</description>
+        <parentUuid>_a-0000dcae-4e27-8000-9ccd-01ef9001ef90_2564</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>/*Date Times returned from DB need to be wrapped in GMT and local before using date add functions  gmt(caladdhours(local(ri!startDateTime,&quot;America/New_York&quot;),ri!amount),&quot;America/New_York&quot;)*/
+if(isnull(ri!interval),null,
+ choose(ri!interval,
+       caladdhours(ri!startDateTime,ri!amount)/*1 - Hours*/,
+        /*GMT accounts for daylights savings*/
+        caladddays( ri!startDateTime,ri!amount)  /*2 - Days*/,
+        ri!startDateTime  /*3 - Months*/,
+        ri!startDateTime  /*4 - Years*/
+ ))
+</definition>
+        <namedTypedValue>
+            <name>amount</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>interval</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>startDateTime</name>
+            <type>
+                <name>dateTime</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

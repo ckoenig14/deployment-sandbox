@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataStoreHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <dataStore>
+        <uuid>_a-0000dcb6-31b2-8000-9ccd-01ef9001ef90_2603</uuid>
+        <name>Test Tables</name>
+        <description></description>
+        <dataSourceKey>jdbc/Appian</dataSourceKey>
+        <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <autoUpdateSchema>false</autoUpdateSchema>
+        <entities>
+            <entity>
+                <uuid>1bfbebbd-f8e8-4993-8ec5-dde14c673408</uuid>
+                <name>dateTime</name>
+                <type>{urn:com:appian:vfm}TEST_dates</type>
+            </entity>
+        </entities>
+    </dataStore>
+    <isPublished>true</isPublished>
+    <roleMap>
+        <role allowForAll="false" inherit="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</dataStoreHaul>

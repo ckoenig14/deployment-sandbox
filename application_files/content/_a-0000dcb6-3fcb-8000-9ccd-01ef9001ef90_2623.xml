@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>TEST_getAllDateTimes</name>
+        <uuid>_a-0000dcb6-3fcb-8000-9ccd-01ef9001ef90_2623</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcae-4e27-8000-9ccd-01ef9001ef90_2565</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#&quot;SYSTEM_SYSRULES_queryEntity&quot;(
+  entity:#&quot;_a-0000dcb6-31b2-8000-9ccd-01ef9001ef90_2620&quot;,
+  query:#&quot;SYSTEM_SYSRULES_query&quot;(
+    selection:{
+      #&quot;SYSTEM_SYSRULES_querySelection&quot;(
+        columns:{
+          #&quot;SYSTEM_SYSRULES_queryColumn&quot;(
+            field:&quot;dateTime&quot;
+          )
+        }
+      )
+    },
+    pagingInfo:#&quot;SYSTEM_SYSRULES_pagingInfo&quot;(startIndex:1,batchSize:5)
+  )
+)</definition>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+</contentHaul>

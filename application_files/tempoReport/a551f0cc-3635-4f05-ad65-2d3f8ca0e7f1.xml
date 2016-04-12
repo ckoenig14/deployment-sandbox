@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tempoReportHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <tempoReport name="TEST_report" a:uuid="a551f0cc-3635-4f05-ad65-2d3f8ca0e7f1">
+        <a:description></a:description>
+        <a:uiExpr></a:uiExpr>
+        <a:urlStub>7h3gKA</a:urlStub>
+    </tempoReport>
+    <roleMap>
+        <role name="report_administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcae-5224-8000-9ccd-011e94011e94_8</groupUuid>
+            </groups>
+        </role>
+        <role name="report_viewer">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcae-5224-8000-9ccd-011e94011e94_7</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+</tempoReportHaul>

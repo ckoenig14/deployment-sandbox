@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <webApi name="test1" a:uuid="e4d1f3b5-9aa0-46a6-b077-a1a474a0b460">
+        <a:description></a:description>
+        <a:expression>with(
+  /*
+  * If there is a username specified in the query string of the HTTP request,
+  * we'll retrieve information about the specified user.  If there is no
+  * username specified then we'll retrieve information about the user that is
+  * executing the Web API.
+  */
+  local!username: if(
+    isnull(http!request.queryParameters.username),
+    loggedInUser(),
+    http!request.queryParameters.username
+  ),
+
+  /*
+  * Retrieve information about the user using the 'user()' function and assemble
+  * this information into a dictionary and store that dictionary in a local
+  * variable named 'local!user'.
+  */
+  local!user: {
+    firstName: user(local!username, &quot;firstName&quot;),
+    lastName: user(local!username, &quot;lastName&quot;),
+    email: user(local!username, &quot;email&quot;),
+    phoneNumber: user(local!username, &quot;phoneOffice&quot;)
+  },
+
+  /*
+  * Construct an HTTP response that contains the information that we just stored
+  * in 'local!user'.
+  */
+  #&quot;SYSTEM_SYSRULES_httpResponse&quot;(
+    /*
+    * Set an HTTP header that tells the client that the body of the response
+    * will be JSON-encoded.
+    */
+    headers: {
+      #&quot;SYSTEM_SYSRULES_httpHeader&quot;(name: &quot;content-type&quot;, value: &quot;application/json&quot;)
+    },
+    /*
+    * JSON-encode the value of 'local!user' and place it in the response body.
+    */
+    body: #&quot;SYSTEM_SYSRULES_toJson&quot;(value: local!user)
+  )
+)</a:expression>
+        <a:urlAlias>test1</a:urlAlias>
+        <a:httpMethod>GET</a:httpMethod>
+        <a:system>false</a:system>
+    </webApi>
+    <roleMap>
+        <role name="web_api_administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcae-5224-8000-9ccd-011e94011e94_8</groupUuid>
+            </groups>
+        </role>
+        <role name="web_api_viewer">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcae-5224-8000-9ccd-011e94011e94_7</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+</webApiHaul>

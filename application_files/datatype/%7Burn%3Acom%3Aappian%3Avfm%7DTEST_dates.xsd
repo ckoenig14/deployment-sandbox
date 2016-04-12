@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:vfm"
+  xmlns:tns="urn:com:appian:vfm" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="TEST_dates">
+    <xsd:annotation>
+      <xsd:appinfo source="appian.jpa">
+        @Table(name="test_datetimes")
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="dateTime" nillable="true" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
