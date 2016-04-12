@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_slaReport</name>
+        <uuid>_a-0000dcb6-074e-8000-b475-010000010000_3998</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=load(
+local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(startIndex: 1,batchSize: 5, sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(field: &quot;dueBy&quot;,ascending: true)),
+local!selectedRequest,
+with(
+local!approvals: #&quot;_a-0000dcb6-074e-8000-b475-010000010000_3999&quot;(pagingInfo:local!pagingInfo),
+/*local!request: if(rule!AUG_isBlank(local!selectedRequest),null,rule!AUG_getRequestById(local!selectedRequest)),*/
+  {#&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+    label:&quot;Overdue Work Steps&quot;,
+    firstColumnContents:{
+    #&quot;SYSTEM_SYSRULES_gridField&quot;(
+      totalCount: local!approvals.totalCount,
+      columns: {
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Due&quot;,
+          field: &quot;dueBy&quot;,
+          data:index(local!approvals.data, &quot;dueBy&quot;, null)
+        ),         
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Assigned On&quot;,
+          field: &quot;dueBy&quot;,
+          data:index(local!approvals.data, &quot;assignedOn&quot;, null)
+        ),         
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Role&quot;,
+          field: &quot;dueBy&quot;,
+          data: 
+            if(local!approvals.totalCount=0,{},
+            apply(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3983&quot;,index(local!approvals.data, &quot;groupId&quot;, null))
+            )
+        ),  
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Worker&quot;,
+          field: &quot;dueBy&quot;,
+          data: 
+            if(local!approvals.totalCount=0,{},
+            apply(#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3793&quot;,index(local!approvals.data, &quot;approver&quot;, null))
+            )
+        ),
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Request ID&quot;,
+          field: &quot;dueBy&quot;,
+          data:index(local!approvals.data, &quot;requestId&quot;, null)
+        ),           
+            #&quot;SYSTEM_SYSRULES_gridImageColumn&quot;(
+              label: &quot;&quot;,
+              data: 
+                if(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3859&quot;(local!approvals.data),{},
+                apply(
+                #&quot;SYSTEM_SYSRULES_documentImage&quot;(document: _,link:_),
+                  merge(
+                    repeat(length(local!approvals.data),#&quot;SYSTEM_SYSRULES_iconIndicator&quot;(&quot;PREVIEW&quot;)),
+                    apply(#&quot;SYSTEM_SYSRULES_dynamicLink&quot;(value:_,saveInto:local!selectedRequest),index(local!approvals.data, &quot;requestId&quot;, {}))
+                  )
+                )
+                ),
+              size: &quot;ICON&quot;
+            )        
+      },
+      value: local!pagingInfo,
+      saveInto: local!pagingInfo
+    )
+    }
+  ),
+  if(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3859&quot;(local!selectedRequest),{},
+    {#&quot;_a-0000dcae-418e-8000-b475-010000010000_3966&quot;(local!selectedRequest),
+    #&quot;SYSTEM_SYSRULES_linkField&quot;(links:#&quot;SYSTEM_SYSRULES_recordLink&quot;(label:&quot;See More Details&quot;,recordType:#&quot;_a-0000dcae-418e-8000-b475-010000010000_3846&quot;,identifier:local!selectedRequest))
+    }
+  )
+  }
+)
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+    </typedValue>
+</contentHaul>

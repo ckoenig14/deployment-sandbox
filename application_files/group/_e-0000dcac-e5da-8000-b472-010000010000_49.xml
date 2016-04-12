@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <group>
+        <name>AUG All Users</name>
+        <securityMap>SECURITYMAP_PUBLIC</securityMap>
+        <uuid>_e-0000dcac-e5da-8000-b472-010000010000_49</uuid>
+        <groupTypeUuid>SYSTEM_GROUP_TYPE_CUSTOM</groupTypeUuid>
+        <description>All users of the AUG application</description>
+        <delegatedCreation>false</delegatedCreation>
+        <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
+        <viewingPolicy>VIEWINGPOLICY_LOW</viewingPolicy>
+        <attributes/>
+    </group>
+    <members>
+        <users/>
+        <groups>
+            <groupUuid>_e-0000dcae-417e-8000-b472-010000010000_52</groupUuid>
+            <groupUuid>_e-0000dcae-417e-8000-b472-010000010000_53</groupUuid>
+            <groupUuid>_e-0000dcac-e5da-8000-b472-010000010000_50</groupUuid>
+            <groupUuid>_e-0000dcae-417e-8000-b472-010000010000_51</groupUuid>
+        </groups>
+    </members>
+    <admins>
+        <users/>
+        <groups/>
+    </admins>
+    <ruleSet/>
+</groupHaul>

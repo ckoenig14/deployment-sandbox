@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_talkRecordForm</name>
+        <uuid>_a-0000dcac-e5ea-8000-b475-010000010000_3779</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  label: &quot;Talk About this Record&quot;,
+  instructions: &quot;Use this form to post a message or send a locked message.&quot;,
+  firstColumnContents: {
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_radioButtonField&quot;(
+          label: &quot;Conversation Type&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          choiceLabels: {&quot;Post to News&quot;, &quot;Send a Message&quot;},
+          choiceValues: {#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3782&quot;, #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3783&quot;},
+          value: ri!button,
+          saveInto: {
+            ri!button,
+            a!save(ri!messageAudience,if(ri!button=#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3782&quot;,null,ri!messageAudience))
+          },  
+          required: true,
+          choiceLayout: &quot;COMPACT&quot;,
+          validations: {}
+        ),
+        if(ri!button=#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3783&quot;,
+        #&quot;SYSTEM_SYSRULES_pickerFieldUsersAndGroups&quot;(
+          label:&quot;Audience&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          required:true,
+          value:ri!messageAudience,
+          saveInto:ri!messageAudience
+        ),{}),
+        #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+          label: &quot;Message&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          value: ri!message,
+          saveInto: ri!message,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          required: true,
+          height: &quot;MEDIUM&quot;,
+          validations: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3784&quot;(ri!message,3500)
+        )
+      },
+      secondColumnContents: {}
+    )
+  },
+  secondColumnContents: {},
+  buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Submit&quot;,
+        style: &quot;PRIMARY&quot;,
+        saveInto: {}
+      )
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Cancel&quot;,
+        style: &quot;NORMAL&quot;,
+        value: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3780&quot;,
+        saveInto: ri!button,
+        skipValidation: true
+      )
+    }
+  ),
+  validations: {}
+)</definition>
+        <namedTypedValue>
+            <name>button</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>message</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>messageAudience</name>
+            <type>
+                <name>UserOrGroup?list</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>button</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>message</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                <a:nameRef>messageAudience</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

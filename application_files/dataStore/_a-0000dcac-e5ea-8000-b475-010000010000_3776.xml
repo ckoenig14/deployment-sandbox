@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataStoreHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <dataStore>
+        <uuid>_a-0000dcac-e5ea-8000-b475-010000010000_3776</uuid>
+        <name>AUG_Tables</name>
+        <description></description>
+        <dataSourceKey>jdbc/AppianAnywhere</dataSourceKey>
+        <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <entities>
+            <entity>
+                <uuid>69640530-1e2a-4594-9603-0921e902beab</uuid>
+                <name>AUG_entity</name>
+                <type>{urn:com:appian:types:AUG}AUG_entity</type>
+            </entity>
+            <entity>
+                <uuid>da960eb8-14e9-47b4-92a2-06f5713ba9ef</uuid>
+                <name>AUG_request</name>
+                <type>{urn:com:appian:types:AUG}AUG_request</type>
+            </entity>
+            <entity>
+                <uuid>5c769438-70db-4a18-837b-3af7e3e9ede3</uuid>
+                <name>AUG_approval</name>
+                <type>{urn:com:appian:types:AUG}AUG_approval</type>
+            </entity>
+            <entity>
+                <uuid>f5446dc8-9ecd-41fa-85b3-0114384afc31</uuid>
+                <name>AUG_approvalChain</name>
+                <type>{urn:com:appian:types:AUG}AUG_approvalChain</type>
+            </entity>
+        </entities>
+    </dataStore>
+    <isPublished>true</isPublished>
+    <roleMap>
+        <role allowForAll="false" inherit="false" name="administrators">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcac-e5da-8000-b472-010000010000_50</groupUuid>
+            </groups>
+        </role>
+        <role allowForAll="false" inherit="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="readers">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcac-e5da-8000-b472-010000010000_49</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+</dataStoreHaul>

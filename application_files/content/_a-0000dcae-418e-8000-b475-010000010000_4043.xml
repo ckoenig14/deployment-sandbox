@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_createTaskReportColumn</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_4043</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>with(&#xD;
+  local!columnData: index(ri!data, ri!columnConfig.field, {}),&#xD;
+  local!columnDataCount: count(local!columnData),&#xD;
+  #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(&#xD;
+    label: ri!columnConfig.label,&#xD;
+    field: ri!columnConfig.field,&#xD;
+    data: if(&#xD;
+      local!columnDataCount &gt; 0,&#xD;
+      apply(&#xD;
+        if(&#xD;
+          ri!columnConfig.configuredFormatting = &quot;TASK_STATUS&quot;,&#xD;
+          #&quot;_a-0000dcae-418e-8000-b475-010000010000_4047&quot;(data: local!columnData, index: _),&#xD;
+          #&quot;_a-0000dcae-418e-8000-b475-010000010000_4044&quot;(data: local!columnData, index: _)&#xD;
+        ),&#xD;
+        1 + enumerate(local!columnDataCount)&#xD;
+      ),&#xD;
+      {}&#xD;
+    ),&#xD;
+    links: if(&#xD;
+      ri!columnConfig.configuredDrilldown = &quot;TASK_DETAILS&quot;,&#xD;
+      apply(&#xD;
+        #&quot;SYSTEM_SYSRULES_processTaskLink&quot;(task: _),&#xD;
+        index(ri!data, ri!columnConfig.drilldownField, {})&#xD;
+      ),&#xD;
+      null&#xD;
+    )&#xD;
+  )&#xD;
+)</definition>
+        <namedTypedValue>
+            <name>data</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>columnConfig</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                <a:nameRef>data</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                <a:nameRef>columnConfig</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

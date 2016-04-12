@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_createTaskReport</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_4052</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(
+    startIndex: 1,
+    batchSize: 20
+  ),
+  with(
+    local!report: a!queryProcessAnalytics(
+      report: #&quot;_a-0000dcae-418e-8000-b475-010000010000_4054&quot;,
+      contextProcessModels:{#&quot;_a-0000dcae-418e-8000-b475-010000010000_4055&quot;,#&quot;_a-0000dcae-418e-8000-b475-010000010000_4076&quot;},
+      query: #&quot;SYSTEM_SYSRULES_query&quot;(
+        pagingInfo: local!pagingInfo,
+        logicalExpression: #&quot;SYSTEM_SYSRULES_queryLogicalExpression&quot;(
+          operator: &quot;AND&quot;,
+          filters: {
+            #&quot;SYSTEM_SYSRULES_queryFilter&quot;(field: &quot;c7&quot;, operator: &quot;=&quot;, value: ri!entityId),
+            #&quot;SYSTEM_SYSRULES_queryFilter&quot;(field: &quot;c5&quot;, operator: &quot;in&quot;, value: {0,1})
+          }
+        )
+      )
+    ),
+    {
+    /*a!textField(value:local!report,readOnly:true),  */
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+    label:&quot;Pending Entity Tasks&quot;,
+    firstColumnContents:{
+    #&quot;SYSTEM_SYSRULES_gridField&quot;(
+      label:&quot;&quot;,
+      instructions:&quot;&quot;,
+      totalCount: local!report.totalCount,
+      columns: {
+        apply(
+          #&quot;_a-0000dcae-418e-8000-b475-010000010000_4043&quot;(columnConfig: _, data: local!report.data),
+          local!report.columnConfigs
+        )
+      },
+      value: local!pagingInfo,
+      saveInto: local!pagingInfo
+    )
+    }
+    )
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>entityId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:int"/>
+                <a:nameRef>entityId</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

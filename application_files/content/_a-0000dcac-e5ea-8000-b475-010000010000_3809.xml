@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_createRequestForm</name>
+        <uuid>_a-0000dcac-e5ea-8000-b475-010000010000_3809</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=load(
+local!entity:#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3821&quot;(ri!entityId),  
+#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  label: &quot;Create Request for &quot;&amp;local!entity.name,
+  instructions: &quot;Please enter the request details after which the request will be routed for approval.&quot;,
+  firstColumnContents: {
+    #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3818&quot;(entity:local!entity,twoColumns:true,showLink:true),
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Request Details&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Title&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          value: ri!request.name,
+          saveInto: ri!request.name,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          required: true,
+          validations: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3784&quot;(ri!request.name,#&quot;_a-0000dcae-418e-8000-b475-010000010000_3947&quot;)
+        ),
+        #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+          label: &quot;Description&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          value: ri!request.description,
+          saveInto: ri!request.description,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          required: true,
+          height: &quot;MEDIUM&quot;,
+          validations: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3784&quot;(ri!request.description,#&quot;_a-0000dcae-418e-8000-b475-010000010000_3949&quot;)
+        ),
+        #&quot;SYSTEM_SYSRULES_dropdownField&quot;(
+          label: &quot;Category&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          placeholderLabel: &quot;--- Select a Value ---&quot;,
+          choiceLabels: #&quot;6447e6c1-b5f1-48d6-901c-59d3176ce46d&quot;(),
+          choiceValues: #&quot;6447e6c1-b5f1-48d6-901c-59d3176ce46d&quot;(),
+          value: ri!request.category,
+          saveInto: ri!request.category,
+          required: true,
+          validations: {}
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(instructions:#&quot;_a-0000dcb6-074e-8000-b475-010000010000_4021&quot;,readOnly:true)
+      },
+      secondColumnContents: {}
+    )
+  },
+  secondColumnContents: {},
+  buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Submit Request&quot;,
+        style: &quot;PRIMARY&quot;,
+        value: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3815&quot;,
+        saveInto: ri!button
+      )
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Cancel&quot;,
+        style: &quot;NORMAL&quot;,
+        value: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3780&quot;,
+        saveInto: ri!button,
+        skipValidation: true
+      )
+    }
+  ),
+  validations: {}
+)
+)</definition>
+        <namedTypedValue>
+            <name>request</name>
+            <type>
+                <name>AUG_request</name>
+                <namespace>urn:com:appian:types:AUG</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>button</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>entityId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:Expression"/>
+                <a:nameRef>request</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>button</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:int"/>
+                <a:nameRef>entityId</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

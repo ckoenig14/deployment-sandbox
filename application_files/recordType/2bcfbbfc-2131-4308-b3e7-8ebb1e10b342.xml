@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <recordType name="AUG Entity" a:uuid="2bcfbbfc-2131-4308-b3e7-8ebb1e10b342">
+        <a:pluralName>AUG Entities</a:pluralName>
+        <a:description>This distinct bodies within the organization</a:description>
+        <a:urlStub>QNOnuA</a:urlStub>
+        <a:source xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:DataStoreEntity" a:uuid="69640530-1e2a-4594-9603-0921e902beab@_a-0000dcac-e5ea-8000-b475-010000010000_3776"/>
+        <a:listViewTemplateExpr>=#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3792&quot;(
+  name:rf!name,
+  description:rf!description,
+  dri:rf!dri
+)</a:listViewTemplateExpr>
+        <a:fieldCfg name="DRI">
+            <a:description></a:description>
+            <a:sourceRef>dri</a:sourceRef>
+            <a:isSortable>false</a:isSortable>
+            <a:isSearchable>false</a:isSearchable>
+            <a:isFacet>true</a:isFacet>
+            <a:facetType>CUSTOM_BUCKETS_CLOSED</a:facetType>
+            <a:isExclusiveFacet>true</a:isExclusiveFacet>
+            <a:facetLabelExpr>=&quot;DRI&quot;</a:facetLabelExpr>
+            <a:facetOption>
+                <a:labelExpr>=&quot;Me&quot;</a:labelExpr>
+                <a:facetOperator>IN</a:facetOperator>
+                <a:lowerLimitExpr></a:lowerLimitExpr>
+                <a:upperLimitExpr></a:upperLimitExpr>
+                <a:values>=loggedInUser()</a:values>
+            </a:facetOption>
+            <a:sortOrderIndex>0</a:sortOrderIndex>
+            <a:facetOrderIndex>0</a:facetOrderIndex>
+        </a:fieldCfg>
+        <a:fieldCfg name="Design Tip">
+            <a:description></a:description>
+            <a:sourceRef>entityId</a:sourceRef>
+            <a:isSortable>false</a:isSortable>
+            <a:isSearchable>false</a:isSearchable>
+            <a:isFacet>true</a:isFacet>
+            <a:facetType>CUSTOM_BUCKETS_CLOSED</a:facetType>
+            <a:isExclusiveFacet>true</a:isExclusiveFacet>
+            <a:facetLabelExpr>=&quot;Design Tip&quot;</a:facetLabelExpr>
+            <a:facetOption>
+                <a:labelExpr>=&quot;The listview items do not use the default card images that provide little value in many use cases. Different images and colors are more visually appealing and can represent different metadata values to help users find what they are looking for faster. This is especially evident in the requests listview.&quot;</a:labelExpr>
+                <a:facetOperator>NOT_IN</a:facetOperator>
+                <a:lowerLimitExpr></a:lowerLimitExpr>
+                <a:upperLimitExpr></a:upperLimitExpr>
+                <a:values>0</a:values>
+            </a:facetOption>
+            <a:sortOrderIndex>1</a:sortOrderIndex>
+            <a:facetOrderIndex>1</a:facetOrderIndex>
+        </a:fieldCfg>
+        <a:detailViewCfg>
+            <a:nameExpr>=&quot;Summary&quot;</a:nameExpr>
+            <a:uiExpr>=#&quot;_a-0000dcae-418e-8000-b475-010000010000_3808&quot;(rf!entityId)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>summary</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+            <a:relatedActionCfg>5b96d908-6bda-4bad-b2ef-ff7e928a1c52</a:relatedActionCfg>
+            <a:relatedActionCfg>3adfccea-7c8d-437f-9903-5b223cd9f2b7</a:relatedActionCfg>
+        </a:detailViewCfg>
+        <a:detailViewCfg>
+            <a:nameExpr>=&quot;Historical Requests&quot;</a:nameExpr>
+            <a:uiExpr>=#&quot;_a-0000dcae-418e-8000-b475-010000010000_3864&quot;(entityId:rf!entityId)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>_slv9Zw</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+            <a:relatedActionCfg>5b96d908-6bda-4bad-b2ef-ff7e928a1c52</a:relatedActionCfg>
+        </a:detailViewCfg>
+        <a:detailViewCfg>
+            <a:nameExpr>=&quot;Work Chain&quot;</a:nameExpr>
+            <a:uiExpr>=#&quot;_a-0000dcae-418e-8000-b475-010000010000_3938&quot;(entityId:rf!entityId)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>_ZOl99A</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+            <a:relatedActionCfg>5b96d908-6bda-4bad-b2ef-ff7e928a1c52</a:relatedActionCfg>
+        </a:detailViewCfg>
+        <a:detailViewCfg>
+            <a:nameExpr>=&quot;Pending Tasks&quot;</a:nameExpr>
+            <a:uiExpr>=#&quot;_a-0000dcae-418e-8000-b475-010000010000_4052&quot;(entityId:rf!entityId)</a:uiExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:urlStub>_-g6lcA</a:urlStub>
+            <a:headerExpr></a:headerExpr>
+        </a:detailViewCfg>
+        <a:defaultSortInfo>
+            <field>name</field>
+            <ascending>true</ascending>
+        </a:defaultSortInfo>
+        <a:relatedActionCfg>
+            <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0002dcae-3ba0-8000-b475-010000010000"/>
+            <a:contextExpr>={entityId:rf!entityId}</a:contextExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:refId>5b96d908-6bda-4bad-b2ef-ff7e928a1c52</a:refId>
+        </a:relatedActionCfg>
+        <a:relatedActionCfg>
+            <a:target xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:ProcessModel" a:uuid="0002dcad-021e-8000-b475-010000010000"/>
+            <a:contextExpr>={recordKey:#&quot;_a-0000dcae-418e-8000-b475-010000010000_3847&quot;,recordId:rf!entityId}</a:contextExpr>
+            <a:visibilityExpr>=true()</a:visibilityExpr>
+            <a:refId>3adfccea-7c8d-437f-9903-5b223cd9f2b7</a:refId>
+        </a:relatedActionCfg>
+        <a:isSystem>false</a:isSystem>
+        <a:dataSrcExpr></a:dataSrcExpr>
+        <a:facetsListExpr></a:facetsListExpr>
+        <a:defaultFiltersExpr></a:defaultFiltersExpr>
+        <a:security>16383</a:security>
+    </recordType>
+    <roleMap>
+        <role name="record_type_administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcac-e5da-8000-b472-010000010000_50</groupUuid>
+            </groups>
+        </role>
+        <role name="record_type_viewer">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000dcac-e5da-8000-b472-010000010000_49</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+</recordTypeHaul>

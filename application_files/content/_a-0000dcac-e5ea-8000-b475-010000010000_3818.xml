@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_entityDetailsSectionReadOnly</name>
+        <uuid>_a-0000dcac-e5ea-8000-b475-010000010000_3818</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=#&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+  label: &quot;Entity Details&quot;,
+  firstColumnContents: {
+    if(ri!showLink=true,
+    #&quot;SYSTEM_SYSRULES_linkField&quot;(
+      label: &quot;Name&quot;,
+      labelPosition: &quot;ADJACENT&quot;,
+      links: 
+        #&quot;SYSTEM_SYSRULES_recordLink&quot;(label:ri!entity.name,recordType:#&quot;_a-0000dcae-418e-8000-b475-010000010000_3845&quot;,identifier:ri!entity.entityId)
+    ),     
+    #&quot;SYSTEM_SYSRULES_textField&quot;(
+      label: &quot;Name&quot;,
+      labelPosition: &quot;ADJACENT&quot;,
+      value: ri!entity.name,
+      readonly: true
+    )),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(
+      label: &quot;DRI&quot;,
+      labelPosition: &quot;ADJACENT&quot;,
+      value: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3793&quot;(ri!entity.dri),
+      readonly: true
+    ),
+    if(ri!twoColumns=true,{},
+    #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+      label: &quot;Description&quot;,
+      labelPosition: &quot;ADJACENT&quot;,
+      value: ri!entity.description,
+      readonly: true,
+      height: &quot;MEDIUM&quot;
+    ))
+  },
+  secondColumnContents: {
+    if(ri!twoColumns=true,
+    #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+      label: &quot;Description&quot;,
+      labelPosition: &quot;ADJACENT&quot;,
+      value: ri!entity.description,
+      readonly: true,
+      height: &quot;MEDIUM&quot;
+    ),{})
+  },
+  validations: {}
+)</definition>
+        <namedTypedValue>
+            <name>entity</name>
+            <type>
+                <name>AUG_entity</name>
+                <namespace>urn:com:appian:types:AUG</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>twoColumns</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>showLink</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:Expression"/>
+                <a:nameRef>entity</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:Expression"/>
+                <a:nameRef>twoColumns</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:Expression"/>
+                <a:nameRef>showLink</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

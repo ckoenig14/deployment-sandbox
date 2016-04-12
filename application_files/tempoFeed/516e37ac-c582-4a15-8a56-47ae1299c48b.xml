@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tempoFeedHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <tempoFeed>
+        <uuid>516e37ac-c582-4a15-8a56-47ae1299c48b</uuid>
+        <name>AUG Feed</name>
+        <showInCatalog>true</showInCatalog>
+        <systemFeed>false</systemFeed>
+    </tempoFeed>
+    <roleMap/>
+</tempoFeedHaul>

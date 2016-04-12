@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_getRequestsByEntityAndFilters</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_3858</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#&quot;SYSTEM_SYSRULES_queryEntity&quot;(&#xD;
+  entity: #&quot;_a-0000dcae-418e-8000-b475-010000010000_3818&quot;,&#xD;
+  query: #&quot;SYSTEM_SYSRULES_query&quot;(&#xD;
+    logicalExpression: #&quot;SYSTEM_SYSRULES_queryLogicalExpression&quot;(&#xD;
+      operator: &quot;AND&quot;,  &#xD;
+      filters: {&#xD;
+        #&quot;SYSTEM_SYSRULES_queryFilter&quot;(&#xD;
+          field: &quot;entityId&quot;,&#xD;
+          operator: &quot;=&quot;,&#xD;
+          value: ri!entityId&#xD;
+        ),&#xD;
+        if(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3859&quot;(ri!status),{},&#xD;
+        #&quot;SYSTEM_SYSRULES_queryFilter&quot;(&#xD;
+        field: &quot;status&quot;,&#xD;
+        operator: &quot;in&quot;,&#xD;
+        value: {ri!status}&#xD;
+        )) &#xD;
+      }&#xD;
+    ),  &#xD;
+    pagingInfo:ri!pagingInfo&#xD;
+  )&#xD;
+)</definition>
+        <namedTypedValue>
+            <name>entityId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>status</name>
+            <type>
+                <name>Text?list</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>pagingInfo</name>
+            <type>
+                <name>Variant</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                <a:nameRef>entityId</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>status</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                <a:nameRef>pagingInfo</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

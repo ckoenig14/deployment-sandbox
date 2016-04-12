@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_requestDetailsSectionReadOnly</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_3813</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Request Details&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Title&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: ri!request.name,
+          readOnly: true
+        ),
+        #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+          label: &quot;Description&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: ri!request.description,
+          readOnly: true,
+          height: &quot;MEDIUM&quot;
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot;Category&quot;,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: ri!request.category,
+          readOnly: true
+        ),
+        #&quot;SYSTEM_SYSRULES_textField&quot;(
+          label: &quot; &quot;,
+          instructions: &quot;Created by &quot;&amp;#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3793&quot;(ri!request.createdBy)&amp;&quot; on &quot;&amp;ri!request.createdDate,
+          labelPosition: &quot;ADJACENT&quot;,
+          value: &quot; &quot;,
+          readOnly: true
+        )        
+      },
+      secondColumnContents: {}
+    )</definition>
+        <namedTypedValue>
+            <name>request</name>
+            <type>
+                <name>AUG_request</name>
+                <namespace>urn:com:appian:types:AUG</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:Expression"/>
+                <a:nameRef>request</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

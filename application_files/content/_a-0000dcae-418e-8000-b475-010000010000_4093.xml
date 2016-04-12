@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_driReport</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_4093</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=load(
+local!pagingInfo1: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(startIndex: 1,batchSize: 5, sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(field: &quot;entityId&quot;,ascending: true)),
+local!selectedEntity,
+with(
+local!counts:#&quot;_a-0000dcae-418e-8000-b475-010000010000_4091&quot;(),
+local!names:#&quot;_a-0000dcae-418e-8000-b475-010000010000_4094&quot;(index(local!counts.data, &quot;entityId&quot;, {0})),
+  {
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label: &quot;Requests By Entity&quot;,
+      firstColumnContents: {
+        #&quot;SYSTEM_SYSRULES_pieChartField&quot;(
+          series: {
+            apply(
+              #&quot;SYSTEM_SYSRULES_chartSeries&quot;(label: _, data: _),
+              merge(
+                {local!names},
+                {index(local!counts.data, &quot;numberOfRequests&quot;, null)}
+              )
+            )
+          },
+          showTooltips:true
+        )
+      },
+      secondColumnContents: {
+        #&quot;SYSTEM_SYSRULES_gridField&quot;(
+          totalCount: local!counts.totalCount,
+          columns: {
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Name&quot;,
+              field: &quot;entityId&quot;,
+              data: local!names
+            ),
+            #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+              label: &quot;Count&quot;,
+              field: &quot;entityId&quot;,
+              data: index(local!counts.data, &quot;numberOfRequests&quot;, {})
+            ),        
+            #&quot;SYSTEM_SYSRULES_gridImageColumn&quot;(
+              label: &quot;&quot;,
+              data: 
+                if(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3859&quot;(local!counts.data),{},
+                apply(
+                #&quot;SYSTEM_SYSRULES_documentImage&quot;(document: _,link:_),
+                  merge(
+                    repeat(length(local!counts.data),#&quot;SYSTEM_SYSRULES_iconIndicator&quot;(&quot;PREVIEW&quot;)),
+                    apply(#&quot;SYSTEM_SYSRULES_dynamicLink&quot;(value:_,saveInto:local!selectedEntity),index(local!counts.data, &quot;entityId&quot;, {}))
+                  )
+                )
+                ),
+              size: &quot;ICON&quot;
+            )
+          },
+          value: local!pagingInfo1,
+          saveInto: local!pagingInfo1
+        )
+      }
+    ),
+    if(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3859&quot;(local!selectedEntity),{},
+    #&quot;_a-0000dcb6-074e-8000-b475-010000010000_4046&quot;(entityId:local!selectedEntity))
+  }
+)
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+    </typedValue>
+</contentHaul>

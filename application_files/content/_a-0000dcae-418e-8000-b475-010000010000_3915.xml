@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_reviewRequestForm</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_3915</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=load(
+local!entity:#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3821&quot;(ri!entityId),  
+#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  label: &quot;Create Request for &quot;&amp;local!entity.name,
+  instructions: &quot;As the entity DRI, please review the following request&quot;,
+  firstColumnContents: {
+    #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3818&quot;(entity:local!entity,twoColumns:true,showLink:true),
+    #&quot;_a-0000dcae-418e-8000-b475-010000010000_3813&quot;(request:ri!request),
+    #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+      label:&quot;Review Details&quot;,
+      firstColumnContents:{
+        #&quot;SYSTEM_SYSRULES_paragraphField&quot;(
+          label: &quot;Comment&quot;,
+          labelPosition: &quot;ABOVE&quot;,
+          value: ri!comment,
+          saveInto: ri!comment,
+          refreshAfter: &quot;UNFOCUS&quot;,
+          required: true,
+          height: &quot;MEDIUM&quot;,
+          validations: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3784&quot;(ri!comment,#&quot;_a-0000dcae-418e-8000-b475-010000010000_3949&quot;) 
+        )  
+      }
+    )  
+  },
+  secondColumnContents: {},
+  buttons: #&quot;SYSTEM_SYSRULES_ButtonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Approve&quot;,
+        style: &quot;PRIMARY&quot;,
+        value: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3815&quot;,
+        saveInto: ri!button
+      )
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_ButtonWidgetSubmit&quot;(
+        label: &quot;Deny&quot;,
+        style: &quot;NORMAL&quot;,
+        value: #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3780&quot;,
+        saveInto: ri!button,
+        skipValidation: true
+      )
+    }
+  ),
+  validations: {}
+)
+)</definition>
+        <namedTypedValue>
+            <name>request</name>
+            <type>
+                <name>AUG_request</name>
+                <namespace>urn:com:appian:types:AUG</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>button</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>entityId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>comment</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="a:Expression"/>
+                <a:nameRef>request</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>button</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:int"/>
+                <a:nameRef>entityId</a:nameRef>
+            </a:ruleInputTestConfigs>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                <a:nameRef>comment</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

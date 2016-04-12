@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_recordSummaryEntity</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_3808</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=load(
+local!entity:#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3821&quot;(ri!entityId),  
+#&quot;SYSTEM_SYSRULES_dashboardLayout&quot;(
+  firstColumnContents: {
+    #&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3818&quot;(entity:local!entity,twoColumns:true,showLink:false),
+    #&quot;_a-0000dcae-418e-8000-b475-010000010000_3901&quot;(label:&quot;Documents&quot;,folderId:local!entity.folderId),
+    #&quot;_a-0000dcae-418e-8000-b475-010000010000_3855&quot;(entityId:ri!entityId),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(readOnly:true,instructions:#&quot;_a-0000dcae-418e-8000-b475-010000010000_3905&quot;)
+  },
+  secondColumnContents: {
+    /* Add components here for a two-column dashboard */
+  }
+)
+)</definition>
+        <namedTypedValue>
+            <name>entityId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:int"/>
+                <a:nameRef>entityId</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <rule>
+        <name>AUG_requestApprovalReadOnlySection</name>
+        <uuid>_a-0000dcae-418e-8000-b475-010000010000_3966</uuid>
+        <description></description>
+        <parentUuid>_a-0000dcac-e5ea-8000-b475-010000010000_3778</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>=load(
+local!pagingInfo: #&quot;SYSTEM_SYSRULES_pagingInfo&quot;(startIndex: 1,batchSize: 5, sort: #&quot;SYSTEM_SYSRULES_sortInfo&quot;(field: &quot;order&quot;,ascending: true)),
+with(
+local!approvals: #&quot;_a-0000dcae-418e-8000-b475-010000010000_3964&quot;(requestId:ri!requestId,pagingInfo:local!pagingInfo),
+  #&quot;SYSTEM_SYSRULES_sectionLayout&quot;(
+    label:&quot;Work Status&quot;,
+    firstColumnContents:{
+    #&quot;SYSTEM_SYSRULES_gridField&quot;(
+      totalCount: local!approvals.totalCount,
+      columns: {
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Order&quot;,
+          field: &quot;order&quot;,
+          data: index(local!approvals.data, &quot;order&quot;, null)
+        ),
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Role&quot;,
+          field: &quot;order&quot;,
+          data: 
+            if(local!approvals.totalCount=0,{},
+            apply(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3983&quot;,index(local!approvals.data, &quot;groupId&quot;, null))
+            )
+        ),  
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Worker&quot;,
+          field: &quot;order&quot;,
+          data: 
+            if(local!approvals.totalCount=0,{},
+            apply(#&quot;_a-0000dcac-e5ea-8000-b475-010000010000_3793&quot;,index(local!approvals.data, &quot;approver&quot;, null))
+            )
+        ),   
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Due&quot;,
+          field: &quot;order&quot;,
+          data: 
+            if(local!approvals.totalCount=0,{},
+            apply(#&quot;_a-0000dcae-418e-8000-b475-010000010000_3985&quot;(assignedOn:_,dueBy:_,completedOn:_,sla:_),
+              merge(
+                index(local!approvals.data, &quot;assignedOn&quot;, null),
+                index(local!approvals.data, &quot;dueBy&quot;, null),
+                index(local!approvals.data, &quot;completedOn&quot;, null),
+                index(local!approvals.data, &quot;sla&quot;, null)
+              )
+            )
+            )
+        ), 
+        #&quot;SYSTEM_SYSRULES_gridTextColumn&quot;(
+          label: &quot;Comment&quot;,
+          field: &quot;order&quot;,
+          data: index(local!approvals.data, &quot;comment&quot;, null)
+        )
+      },
+      value: local!pagingInfo,
+      saveInto: local!pagingInfo
+    )
+    }
+  ) 
+)
+)</definition>
+        <namedTypedValue>
+            <name>requestId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role allowForAll="false" inherit="true" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="true" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role allowForAll="false" inherit="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <a:ruleInputTestConfigs>
+                <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:int"/>
+                <a:nameRef>requestId</a:nameRef>
+            </a:ruleInputTestConfigs>
+        </value>
+    </typedValue>
+</contentHaul>
