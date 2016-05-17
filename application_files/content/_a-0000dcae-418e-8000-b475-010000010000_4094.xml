@@ -88,4 +88,4 @@ apply(fn!displayvalue,ri!entityIds,local!query.data.entityId,local!query.data.na
             </a:ruleInputTestConfigs>
         </value>
     </typedValue>
-</contentHaul>
+</contentHaul> 

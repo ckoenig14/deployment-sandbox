@@ -17,4 +17,4 @@
       <xsd:element name="SLA" nillable="true" type="xsd:int"/>
     </xsd:sequence>
   </xsd:complexType>
-</xsd:schema>
+</xsd:schema> 
