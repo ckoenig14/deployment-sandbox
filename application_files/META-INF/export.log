@@ -5,15 +5,15 @@ Referenced precedents that were not exported (1):
 user courtney.koenig courtney.koenig
 
 Trace:
-2016-05-18 12:56:42.595 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Begin transport.
-2016-05-18 12:56:42.595 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Retrieving object data.
-2016-05-18 12:56:42.597 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 App associated objects: GlobalIdMap[]
-2016-05-18 12:56:42.597 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Invalid associated objects: GlobalIdMap[]
-2016-05-18 12:56:42.598 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Adding valid associated objects to be exported: GlobalBindingMap[]
-2016-05-18 12:56:42.598 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Setting uuids of object references.
-2016-05-18 12:56:42.598 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: Application.forum
-2016-05-18 12:56:42.599 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: Application.parent
-2016-05-18 12:56:42.601 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: com.appiancorp.suiteapi.content.ContentRoleMap@105a393b[
+2016-05-18 19:26:48.41 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Begin transport.
+2016-05-18 19:26:48.41 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Retrieving object data.
+2016-05-18 19:26:48.413 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 App associated objects: GlobalIdMap[]
+2016-05-18 19:26:48.413 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Invalid associated objects: GlobalIdMap[]
+2016-05-18 19:26:48.413 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Adding valid associated objects to be exported: GlobalBindingMap[]
+2016-05-18 19:26:48.413 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Setting uuids of object references.
+2016-05-18 19:26:48.413 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: Application.forum
+2016-05-18 19:26:48.413 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: Application.parent
+2016-05-18 19:26:48.414 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: com.appiancorp.suiteapi.content.ContentRoleMap@4ab2a0a2[
   ContentRole[name=readers,inherit=false,allowForAll=false]
   ContentRole[name=authors,inherit=false,allowForAll=false]
   ContentRole[name=administrators,usernames=[courtney.koenig],inherit=false,allowForAll=false]
@@ -22,12 +22,12 @@ Trace:
   ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
   securityVector=129:SEC_PUBLIC=true,SEC_CREATOR_ADMIN=true,SEC_INH_ADMIN=false,SEC_INH_EDITOR=false,SEC_INH_VIEWER=false,SEC_ALL_ADMIN=false,SEC_ALL_EDITOR=false,SEC_ALL_VIEWER=false
 ]
-2016-05-18 12:56:42.601 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=readers,inherit=false,allowForAll=false]
-2016-05-18 12:56:42.601 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=authors,inherit=false,allowForAll=false]
-2016-05-18 12:56:42.601 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=administrators,usernames=[courtney.koenig],inherit=false,allowForAll=false]
-2016-05-18 12:56:42.602 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
-2016-05-18 12:56:42.602 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
-2016-05-18 12:56:42.602 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
-2016-05-18 12:56:42.603 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Exporting binary resources.
-2016-05-18 12:56:42.603 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Serializing object to XML.
-2016-05-18 12:56:42.808 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Object transported.
+2016-05-18 19:26:48.414 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=readers,inherit=false,allowForAll=false]
+2016-05-18 19:26:48.414 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=authors,inherit=false,allowForAll=false]
+2016-05-18 19:26:48.414 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=administrators,usernames=[courtney.koenig],inherit=false,allowForAll=false]
+2016-05-18 19:26:48.415 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+2016-05-18 19:26:48.415 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+2016-05-18 19:26:48.415 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+2016-05-18 19:26:48.415 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Exporting binary resources.
+2016-05-18 19:26:48.415 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Serializing object to XML.
+2016-05-18 19:26:48.416 DEBUG application 4846 _a-0000dcf9-3adb-8000-9ccd-01ef9001ef90_4907 Object transported.
