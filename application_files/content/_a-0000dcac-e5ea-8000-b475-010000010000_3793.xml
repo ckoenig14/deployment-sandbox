@@ -55,4 +55,4 @@ if(isusernametaken(ri!user),
             <groups/>
         </role>
     </roleMap>
-</contentHaul>
+</contentHaul> 
