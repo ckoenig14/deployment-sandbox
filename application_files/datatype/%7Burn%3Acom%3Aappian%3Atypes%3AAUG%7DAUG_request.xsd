@@ -23,4 +23,4 @@
       <xsd:element name="createdDate" nillable="true" type="xsd:date"/>
     </xsd:sequence>
   </xsd:complexType>
-</xsd:schema> 
+</xsd:schema>
